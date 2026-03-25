@@ -246,7 +246,10 @@
         }
 
         const welcome = chatBody.querySelector('.im-welcome');
-        if (welcome) welcome.style.display = 'none';
+        if (welcome) {
+            welcome.style.display = 'none';
+            chatBody.classList.add('is-chatting');
+        }
 
         const uMsg = document.createElement('div');
         uMsg.className = 'msg msg-user';
