@@ -220,7 +220,8 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 
 .im-header {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 1.5rem; z-index: 20; background: #171717; border-bottom: 1px solid #262626;
+    padding: 1.2rem 1.5rem; z-index: 100; background: #171717; border-bottom: 1px solid #262626;
+    position: relative;
 }
 .im-h-left { font-family: var(--ff); font-size: 0.9rem; font-weight: 600; color: #e5e5e5; display: flex; align-items: center; gap: 0.5rem; }
 .im-h-left .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; } /* Green dot */
@@ -228,7 +229,10 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 .im-h-right svg { cursor: pointer; transition: 0.2s; }
 .im-h-right svg:hover { color: #fff; }
 
-.im-body { grid-row: 2; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: #171717; scroll-behavior: smooth; }
+.im-body { 
+    grid-row: 2; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    padding: 1.5rem; background: #171717; scroll-behavior: smooth; position: relative; z-index: 10;
+}
 .im-body.is-chatting { display: block; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: #333 transparent; }
 .im-body.is-chatting::-webkit-scrollbar { width: 6px; }
 .im-body.is-chatting::-webkit-scrollbar-track { background: transparent; }
