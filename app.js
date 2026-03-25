@@ -184,6 +184,7 @@
     const input = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
     const chatBody = document.getElementById('chat-messages');
+    chatBody.style.overflowY = 'hidden'; // Force hidden on home screen
 
     // Make action cards functional
     document.querySelectorAll('.imw-act').forEach(card => {
@@ -249,6 +250,7 @@
         if (welcome) {
             welcome.style.display = 'none';
             chatBody.classList.add('is-chatting');
+            chatBody.style.overflowY = 'auto'; // Enable scroll only now
         }
 
         const uMsg = document.createElement('div');
