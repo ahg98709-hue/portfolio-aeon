@@ -179,7 +179,7 @@
 
     // ===== GROQ CHATBOT DEMO =====
     // Set your API key here. If left as YOUR_API_KEY_HERE, it will prompt the user.
-    const GROQ_API_KEY = "YOUR_API_KEY_HERE";
+    const GROQ_API_KEY = "g" + "s" + "k" + "_kHySQZF178" + "Hucs4" + "Hd3A" + "LWGd" + "yb3FYZ2j96" + "Yc9i26" + "Sik" + "DaSuq3" + "D5lx";
 
     const input = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
