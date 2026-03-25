@@ -209,7 +209,7 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 .is-settings { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 500; color: #aaa; cursor: pointer; padding: 0.5rem 0; }
 
 /* Main Area */
-.iface-main { flex: 1; display: flex; flex-direction: column; background: #171717; position: relative; }
+.iface-main { flex: 1; display: grid; grid-template-rows: auto 1fr auto; background: #171717; position: relative; overflow: hidden; }
 /* Subtle background gradient radial glow for depth */
 .iface-main::before {
     content: ''; position: absolute; top: 0; left: 50%; width: 100%; height: 50%;
@@ -227,7 +227,7 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 .im-h-right svg { cursor: pointer; transition: 0.2s; }
 .im-h-right svg:hover { color: #fff; }
 
-.im-body { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 5rem 1.5rem 2rem 1.5rem; scroll-behavior: smooth; display: block; background: #171717; }
+.im-body { grid-row: 2; overflow-y: auto; overflow-x: hidden; padding: 4rem 1.5rem; scroll-behavior: smooth; display: block; background: #171717; }
 .im-welcome { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 700px; margin: 4rem auto; }
 .imw-logo {
     width: 64px; height: 64px; background: #fff; border-radius: 16px;
@@ -262,10 +262,7 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 .imw-act-text small { font-size: 0.75rem; color: #737373; }
 .imw-credit { font-size: 0.7rem; color: #555; }
 
-.im-input-area { 
-    padding: 1.2rem 1.5rem 1.5rem 1.5rem; z-index: 20; display: flex; flex-direction: column; align-items: center; 
-    background: #171717; border-top: 1px solid #262626;
-}
+.im-input-area { grid-row: 3; padding: 1.2rem 1.5rem 1.5rem 1.5rem; z-index: 20; display: flex; flex-direction: column; align-items: center; background: #171717; border-top: 1px solid #262626; }
 .im-input-wrap {
     display: flex; align-items: center; width: 100%; max-width: 800px;
     background: #262626; border: 1px solid #333; border-radius: 100px;
