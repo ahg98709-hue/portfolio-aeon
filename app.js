@@ -319,6 +319,17 @@
         }
     }
 
+    // ===== SCROLL BUTTON LOGIC =====
+    const scrollBtn = document.getElementById('scroll-btn');
+    chatBody.addEventListener('scroll', () => {
+        const threshold = 150;
+        const isNearBottom = chatBody.scrollHeight - chatBody.clientHeight - chatBody.scrollTop < threshold;
+        scrollBtn.classList.toggle('visible', !isNearBottom && chatBody.classList.contains('is-chatting'));
+    });
+    scrollBtn.addEventListener('click', () => {
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+    });
+
     sendBtn.addEventListener('click', sendMsg);
     input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
 })();

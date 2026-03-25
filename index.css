@@ -164,11 +164,11 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
     height: 100vh; padding: 0.5rem 0; overflow: hidden;
 }
 .iface {
-    width: 100%; max-width: 1100px; height: clamp(500px, 85vh, 750px); display: flex; 
-    border-radius: var(--r-lg); overflow: hidden;
+    width: 100%; max-width: 1150px; height: 88vh; min-height: 600px; display: flex; 
+    border-radius: var(--r-xl); overflow: hidden;
     background: #111111;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05), 0 0 80px rgba(231,76,60,0.12);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03), 0 0 100px rgba(231,76,60,0.15);
 }
 
 /* Sidebar */
@@ -303,6 +303,16 @@ section { position: relative; z-index: 2; min-height: 100vh; display: flex; alig
 .msg-ai .msg-content p { margin-bottom: 0.75rem; }
 .msg-ai .msg-content p:last-child { margin-bottom: 0; }
 .msg-ai .msg-content pre { background: #000; padding: 1rem; border-radius: 8px; margin: 1rem 0; overflow-x: auto; font-family: monospace; border: 1px solid #333; }
+
+/* Floating Scroll Button */
+.scroll-btn {
+    position: absolute; bottom: 100px; right: 2rem; width: 40px; height: 40px;
+    background: #22c55e; color: #fff; border-radius: 50%; border: none;
+    display: none; align-items: center; justify-content: center; cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4); z-index: 30; transition: transform 0.2s;
+}
+.scroll-btn:hover { transform: translateY(-3px) scale(1.1); }
+.scroll-btn.visible { display: flex; }
 
 /* Typing animation */
 .typing { display: flex; gap: 4px; align-items: center; padding: 0.4rem; }
