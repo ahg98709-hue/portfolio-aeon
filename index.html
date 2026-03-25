@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEON — Advanced Evolving Omni-intelligence Network</title>
+    <meta name="description" content="AEON is an Advanced Evolving Omni-intelligence Network — a next-generation AI with memory, vision, web search, code generation, and task automation. Developed by Shad @a2h537.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Aurora Background -->
+    <div class="aurora">
+        <div class="aurora-blob a1"></div>
+        <div class="aurora-blob a2"></div>
+        <div class="aurora-blob a3"></div>
+        <div class="aurora-blob a4"></div>
+        <div class="aurora-wave"></div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Cursor follower -->
+    <div id="cursor-glow"></div>
+
+    <!-- Noise texture overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>
+                AEON<span class="logo-dot"></span>
+            </a>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+                <a href="#capabilities" class="nav-link" data-section="capabilities">Capabilities</a>
+                <a href="#interface" class="nav-link" data-section="interface">Interface</a>
+                <a href="#performance" class="nav-link" data-section="performance">Performance</a>
+            </div>
+            <a href="https://aeon.aibot3.workers.dev/" target="_blank" class="nav-cta">Launch AEON</a>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero">
+        <div class="hero-inner container">
+            <div class="hero-eyebrow glass-pill">
+                <span class="pulse-dot"></span>
+                Advanced Evolving Omni-intelligence Network
+            </div>
+
+            <h1 class="hero-title">
+                <span class="char" style="--i:0">A</span><span class="char" style="--i:1">E</span><span class="char" style="--i:2">O</span><span class="char" style="--i:3">N</span>
+            </h1>
+
+            <p class="hero-version">v1.0.0</p>
+            <p class="hero-sub">Let's create together 🚀</p>
+
+            <div class="hero-btns">
+                <a href="https://aeon.aibot3.workers.dev/" target="_blank" class="btn-main">
+                    Try AEON
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#capabilities" class="btn-ghost">View Capabilities</a>
+            </div>
+        </div>
+
+        <div class="scroll-cue">
+            <div class="scroll-bar"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ===================== CAPABILITIES ===================== -->
+    <section id="capabilities">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-tag">Intelligence</span>
+                <h2 class="sec-title">Capabilities</h2>
+            </div>
+            <div class="cap-grid">
+                <div class="cap-card glass-card" data-delay="0" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">🧠</div>
+                    <h3>Multimodal Understanding</h3>
+                    <p>Process text, images, code, and audio seamlessly through multiple perception layers.</p>
+                    <div class="cap-tags"><span>Text</span><span>Images</span><span>Code</span></div>
+                </div>
+                <div class="cap-card glass-card" data-delay="1" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">⟨/⟩</div>
+                    <h3>Code Generation</h3>
+                    <p>Write, debug, and optimize code in 20+ programming languages instantly.</p>
+                    <div class="cap-tags"><span>Python</span><span>JS</span><span>C++</span></div>
+                </div>
+                <div class="cap-card glass-card" data-delay="2" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">✍️</div>
+                    <h3>Creative Writing</h3>
+                    <p>Generate stories, scripts, poetry, and content with human-like creativity.</p>
+                    <div class="cap-tags"><span>Stories</span><span>Scripts</span><span>Poetry</span></div>
+                </div>
+                <div class="cap-card glass-card" data-delay="3" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">📊</div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Analyze data and documents with lightning speed and surgical precision.</p>
+                    <div class="cap-tags"><span>Data</span><span>Docs</span><span>Reports</span></div>
+                </div>
+                <div class="cap-card glass-card" data-delay="4" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">💬</div>
+                    <h3>Conversational AI</h3>
+                    <p>Natural, context-aware conversations with memory persistence.</p>
+                    <div class="cap-tags"><span>Context</span><span>Memory</span><span>Natural</span></div>
+                </div>
+                <div class="cap-card glass-card" data-delay="5" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="cap-icon">⚡</div>
+                    <h3>Task Automation</h3>
+                    <p>Automate 400+ complex workflows with simple natural language commands.</p>
+                    <div class="cap-tags"><span>Workflows</span><span>Systems</span><span>400+</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== INTERFACE (EXACT REFERENCE MATCH) ===================== -->
+    <section id="interface">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-tag">Live Interface</span>
+                <h2 class="sec-title">The Console</h2>
+            </div>
+            
+            <div class="iface">
+                <!-- Sidebar -->
+                <div class="iface-side">
+                    <div class="is-brand">
+                        <div class="is-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
+                        AEON
+                    </div>
+                    
+                    <div class="is-model-label">MODEL</div>
+                    <div class="is-model-sel">
+                        <div class="im-sel-left">
+                            <span class="im-sel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg></span>
+                            AEON 1.0
+                        </div>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </div>
+                    
+                    <div class="is-tabs">
+                        <div class="is-tab active">💬 Chats</div>
+                        <div class="is-tab">📦 Projects</div>
+                        <div class="is-tab">🖼 Images</div>
+                    </div>
+                    
+                    <button class="is-new">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        New Chat
+                    </button>
+                    
+                    <div class="is-search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        <input type="text" placeholder="Search chats...">
+                    </div>
+                    
+                    <div class="is-empty">No conversations yet</div>
+                    
+                    <div class="is-settings">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        Settings
+                    </div>
+                </div>
+                
+                <!-- Main Area -->
+                <div class="iface-main">
+                    <div class="im-header">
+                        <div class="im-h-left">
+                            <div class="is-icon" style="width:20px;height:20px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg></div>
+                            AEON 1.0 <span class="dot"></span>
+                        </div>
+                        <div class="im-h-right">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="im-body" id="chat-messages" style="overflow-y: auto; overflow-x: hidden;">
+                        <div class="im-welcome">
+                            <div class="imw-logo">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>
+                            </div>
+                            <h3>AEON 1.0</h3>
+                            <p>Let's create together 🚀</p>
+                            
+                            <div class="imw-pills">
+                                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Memory</span>
+                                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Images</span>
+                                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Web</span>
+                                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Chat</span>
+                            </div>
+                            
+                            <div class="imw-actions">
+                                <div class="imw-act">
+                                    <div class="imwa-icon teal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="16" y1="18" x2="16" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/><line x1="8" y1="18" x2="8" y2="18.01"/></svg></div>
+                                    <div class="imw-act-text"><strong>Calculate</strong><small>Help me with statistics...</small></div>
+                                </div>
+                                <div class="imw-act">
+                                    <div class="imwa-icon orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+                                    <div class="imw-act-text"><strong>Chat</strong><small>How are you doing tod...</small></div>
+                                </div>
+                                <div class="imw-act">
+                                    <div class="imwa-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></div>
+                                    <div class="imw-act-text"><strong>Plan</strong><small>Create a workout routi...</small></div>
+                                </div>
+                                <div class="imw-act">
+                                    <div class="imwa-icon pink"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+                                    <div class="imw-act-text"><strong>Write</strong><small>Write a professional e...</small></div>
+                                </div>
+                            </div>
+                            
+                            <div class="imw-credit">Developed by Shad @a2h537</div>
+                        </div>
+                    </div>
+                    
+                    <div class="im-input-area">
+                        <div class="im-input-wrap">
+                            <div class="im-input-icons">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+                            </div>
+                            <input type="text" id="chat-input" placeholder="Message AEON...">
+                            <button class="im-send" id="send-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            </button>
+                        </div>
+                        <div class="im-disclaimer">AEON — Advanced Evolving Omni-intelligence Network • Upload images for vision analysis</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ===================== PERFORMANCE ===================== -->
+    <section id="performance">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sec-tag">Metrics</span>
+                <h2 class="sec-title">Performance</h2>
+            </div>
+            <div class="perf-grid">
+                <div class="perf-card glass-card" data-delay="0" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="pc-big">99.2<span>%</span></div>
+                    <div class="pc-label">Response Accuracy</div>
+                    <div class="pc-bar"><div class="pc-fill" data-w="99"></div></div>
+                </div>
+                <div class="perf-card glass-card" data-delay="1" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="pc-big">0.3<span>s</span></div>
+                    <div class="pc-label">Average Latency</div>
+                    <div class="pc-bar"><div class="pc-fill" data-w="95"></div></div>
+                </div>
+                <div class="perf-card glass-card" data-delay="2" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="pc-big">1M<span>+</span></div>
+                    <div class="pc-label">Token Context Window</div>
+                    <div class="pc-bar"><div class="pc-fill" data-w="100"></div></div>
+                </div>
+                <div class="perf-card glass-card" data-delay="3" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="pc-big">400<span>+</span></div>
+                    <div class="pc-label">Automation Scripts</div>
+                    <div class="pc-bar"><div class="pc-fill" data-w="85"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="f-left">
+                <div class="f-brand">AEON</div>
+                <p>Advanced Evolving Omni-intelligence Network</p>
+                <small>Developed by Shad @a2h537</small>
+            </div>
+            <div class="f-links">
+                <a href="#hero">Home</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#interface">Console</a>
+            </div>
+        </div>
+        <div class="container f-bottom">
+            <span>© 2026 AEON by Shad. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+rich
+prompt_toolkit
+python-dotenv
+duckduckgo-search
+pydantic
+groq
+psutil
+requests
+beautifulsoup4
+fastapi
+uvicorn
+customtkinter
+pyttsx3
+SpeechRecognition
+pyaudio
