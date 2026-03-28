@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEON Chat Interface - Redesigned</title>
+    <style>
+        /* ============================================= 
+           LAYER 1: DESIGN TOKENS (UI/UX Pro Max Foundation)
+           ============================================= */
+        :root {
+            /* Colors */
+            --color-primary: #6366f1;
+            --color-primary-light: #818cf8;
+            --color-primary-dark: #4f46e5;
+            --color-accent: #06b6d4;
+            --color-background: #0f172a;
+            --color-surface: #1e293b;
+            --color-surface-light: #334155;
+            --color-text: #f1f5f9;
+            --color-text-muted: #cbd5e1;
+            --color-border: #475569;
+            --color-success: #22c55e;
+            --color-error: #ef4444;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            
+            /* Typography */
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-base: 16px;
+            --font-size-lg: 18px;
+            --font-size-2xl: 24px;
+            --font-family-sans: 'Inter', 'Segoe UI', sans-serif;
+            --font-family-mono: 'Fira Code', 'JetBrains Mono', monospace;
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(99, 102, 241, 0.15);
+            --shadow-xl: 0 16px 48px rgba(99, 102, 241, 0.2);
+            --shadow-glow: 0 0 32px rgba(99, 102, 241, 0.4);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease-out;
+            --transition-normal: 200ms ease-out;
+            --transition-slow: 300ms ease-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            background: var(--color-background);
+            color: var(--color-text);
+        }
+
+        /* ============================================= 
+           LAYER 2 & 3: CHAT INTERFACE (Enhancement + Interaction)
+           ============================================= */
+        .aeon-chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: containerEnter 0.5s ease-out;
+        }
+
+        @keyframes containerEnter {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Header with glassmorphism */
+        .aeon-chat-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.05));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            animation: headerSlideDown 0.4s ease-out 0.1s both;
+        }
+
+        @keyframes headerSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .aeon-status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-success);
+            box-shadow: 0 0 12px var(--color-success);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% {
+                box-shadow: 0 0 12px var(--color-success);
+            }
+            50% {
+                box-shadow: 0 0 20px var(--color-success);
+            }
+        }
+
+        .aeon-header-text h3 {
+            margin: 0;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .aeon-header-text p {
+            margin: 4px 0 0 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+
+        /* Messages container */
+        .aeon-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            background: var(--color-background);
+        }
+
+        .aeon-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .aeon-messages::-webkit-scrollbar-track {
+            background: var(--color-background);
+        }
+
+        .aeon-messages::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 4px;
+        }
+
+        .aeon-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary);
+        }
+
+        /* Message styles */
+        .aeon-message-wrapper {
+            display: flex;
+            animation: messageEnter 0.3s ease-out;
+        }
+
+        @keyframes messageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .aeon-message-wrapper.user {
+            justify-content: flex-end;
+        }
+
+        .aeon-message-wrapper.bot {
+            justify-content: flex-start;
+        }
+
+        .aeon-message {
+            max-width: 70%;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            word-wrap: break-word;
+            transition: var(--transition-normal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .aeon-message.user {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: var(--color-text);
+            box-shadow: var(--shadow-md);
+        }
+
+        .aeon-message.user:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .aeon-message.bot {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            box-shadow: var(--shadow-md);
+        }
+
+        .aeon-message.bot:hover {
+            transform: scale(1.02) translateY(-2px);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Typing indicator */
+        .aeon-typing {
+            display: flex;
+            gap: var(--spacing-xs);
+            align-items: center;
+            padding: var(--spacing-md);
+        }
+
+        .aeon-typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            animation: typingBounce 1.2s infinite;
+        }
+
+        .aeon-typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .aeon-typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .aeon-typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% {
+                opacity: 0.4;
+                transform: translateY(0);
+            }
+            30% {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Input area with glassmorphism */
+        .aeon-input-area {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            gap: var(--spacing-sm);
+            animation: inputSlideUp 0.4s ease-out 0.2s both;
+        }
+
+        @keyframes inputSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .aeon-input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 2px solid var(--color-border);
+            background: var(--color-background);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-sans);
+            outline: none;
+            transition: var(--transition-normal);
+        }
+
+        .aeon-input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .aeon-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .aeon-send-btn {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border: none;
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .aeon-send-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .aeon-send-btn:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        .aeon-send-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;">
+        <div class="aeon-chat-container">
+            <!-- Header -->
+            <div class="aeon-chat-header">
+                <div class="aeon-status-dot"></div>
+                <div class="aeon-header-text">
+                    <h3>AEON 1.0</h3>
+                    <p>Let's create together 🚀</p>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="aeon-messages" id="messagesContainer">
+                <div class="aeon-message-wrapper bot">
+                    <div class="aeon-message bot">
+                        Welcome to AEON 1.0! How can I assist you today?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="aeon-input-area">
+                <input 
+                    type="text" 
+                    class="aeon-input" 
+                    id="messageInput"
+                    placeholder="Ask AEON anything..."
+                />
+                <button class="aeon-send-btn" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================= 
+         LAYER 3: INTERACTION (Framer Motion equivalent with vanilla JS)
+         ============================================= -->
+    <script>
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const messagesContainer = document.getElementById('messagesContainer');
+
+        function addMessage(text, isUser) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `aeon-message-wrapper ${isUser ? 'user' : 'bot'}`;
+
+            const message = document.createElement('div');
+            message.className = `aeon-message ${isUser ? 'user' : 'bot'}`;
+            message.textContent = text;
+
+            wrapper.appendChild(message);
+            messagesContainer.appendChild(wrapper);
+
+            // Scroll to bottom
+            setTimeout(() => {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 100);
+        }
+
+        function showTyping() {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'aeon-message-wrapper bot';
+            wrapper.id = 'typingIndicator';
+
+            const typing = document.createElement('div');
+            typing.className = 'aeon-typing';
+            typing.innerHTML = `
+                <div class="aeon-typing-dot"></div>
+                <div class="aeon-typing-dot"></div>
+                <div class="aeon-typing-dot"></div>
+            `;
+
+            wrapper.appendChild(typing);
+            messagesContainer.appendChild(wrapper);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, true);
+            messageInput.value = '';
+            sendBtn.disabled = true;
+
+            showTyping();
+
+            setTimeout(() => {
+                removeTyping();
+                addMessage(
+                    "I'm processing your request. Advanced language models are improving response accuracy and context understanding.",
+                    false
+                );
+                sendBtn.disabled = false;
+                messageInput.focus();
+            }, 1500);
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !sendBtn.disabled) {
+                sendMessage();
+            }
+        });
+
+        messageInput.focus();
+    </script>
+</body>
+</html>
